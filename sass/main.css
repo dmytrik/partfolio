@@ -1,0 +1,222 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #282c34;
+  color: #f1f1f1;
+  line-height: 1.6;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 50px 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #61dafb;
+  margin-bottom: 20px;
+}
+
+header {
+  background: #1d2026;
+  padding: 15px 0;
+}
+header .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+header span {
+  font-family: "Satisfy", "Arial", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #61dafb;
+}
+header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+header nav ul li {
+  margin: 0 10px;
+}
+header nav ul li a {
+  text-decoration: none;
+  color: #f1f1f1;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+header nav ul li a:hover {
+  color: #61dafb;
+}
+@media (max-width: 800px) {
+  header .wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+  header nav ul {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+}
+
+.content-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.content-box p {
+  max-width: 60%;
+}
+.content-box img {
+  width: 200px;
+  border-radius: 10px;
+}
+@media (max-width: 800px) {
+  .content-box {
+    flex-direction: column;
+    text-align: center;
+  }
+  .content-box p {
+    max-width: 90%;
+  }
+  .content-box img {
+    width: 150px;
+  }
+}
+
+.projects-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.projects-list .projects-item {
+  background: #333842;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+.projects-list .projects-item h3 {
+  color: #61dafb;
+  margin-bottom: 10px;
+}
+.projects-list .projects-item a {
+  color: #61dafb;
+  font-weight: bold;
+  text-decoration: none;
+}
+.projects-list .projects-item a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 800px) {
+  .projects-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  list-style: none;
+  text-align: center;
+}
+.skills-list .skills-item {
+  background: #333842;
+  padding: 10px;
+  border-radius: 5px;
+}
+@media (max-width: 800px) {
+  .skills-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 400px) {
+  .skills-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.education-list,
+.experience-list {
+  list-style: none;
+}
+.education-list .education-item,
+.education-list .experience-item,
+.experience-list .education-item,
+.experience-list .experience-item {
+  background: #333842;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.contacts-list {
+  list-style: none;
+  text-align: center;
+}
+.contacts-list .contacts-link::before {
+  content: "";
+  display: block;
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.contacts-list .contacts-link.tel::before {
+  background-image: url("../imgs/tel.svg");
+}
+.contacts-list .contacts-link.email::before {
+  background-image: url("../imgs/email.svg");
+}
+.contacts-list .contacts-link.linkedin::before {
+  background-image: url("../imgs/linkedin.svg");
+}
+.contacts-list .contacts-link.github::before {
+  background-image: url("../imgs/github.svg");
+}
+.contacts-list .contacts-link.telegram::before {
+  background-image: url("../imgs/telegram.svg");
+}
+.contacts-list .contacts-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  color: #f1f1f1;
+  font-size: 1.2rem;
+  margin: 10px 0;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.contacts-list .contacts-link:hover {
+  color: #93e6fc;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #1d2026;
+}/*# sourceMappingURL=main.css.map */

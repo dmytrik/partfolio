@@ -1,0 +1,257 @@
+$primary-color: #282c34;
+$secondary-color: #61dafb;
+$text-color: #f1f1f1;
+$font-main: "Arial", sans-serif;
+$max-width: 1200px;
+
+@mixin flex($jc: center, $ai: center, $dir: row) {
+  display: flex;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-direction: $dir;
+}
+
+@mixin media($size) {
+  @if $size == mobile {
+    @media (max-width: 400px) {
+      @content;
+    }
+  } @else if $size == tablet {
+    @media (max-width: 800px) {
+      @content;
+    }
+  } @else if $size == desktop {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-main;
+  background-color: $primary-color;
+  color: $text-color;
+  line-height: 1.6;
+}
+
+.wrapper {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 50px 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  color: $secondary-color;
+  margin-bottom: 20px;
+}
+
+header {
+  background: darken($primary-color, 5%);
+  padding: 15px 0;
+
+  .wrapper {
+    @include flex(space-between, center);
+  }
+
+  span {
+    font-family: "Satisfy", $font-main;
+    font-size: 2rem;
+    font-weight: bold;
+    color: $secondary-color;
+  }
+
+  nav {
+    ul {
+      list-style: none;
+      @include flex();
+
+      li {
+        margin: 0 10px;
+
+        a {
+          text-decoration: none;
+          color: $text-color;
+          font-size: 1rem;
+          transition: color 0.3s;
+
+          &:hover {
+            color: $secondary-color;
+          }
+        }
+      }
+    }
+  }
+
+  @include media(tablet) {
+    .wrapper {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    nav ul {
+      flex-direction: column;
+      margin-top: 10px;
+    }
+  }
+}
+
+.content-box {
+  @include flex(space-between, center);
+  flex-wrap: wrap;
+  gap: 20px;
+
+  p {
+    max-width: 60%;
+  }
+
+  img {
+    width: 200px;
+    border-radius: 10px;
+  }
+
+  @include media(tablet) {
+    flex-direction: column;
+    text-align: center;
+
+    p {
+      max-width: 90%;
+    }
+
+    img {
+      width: 150px;
+    }
+  }
+}
+
+.projects-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+
+  .projects-item {
+    background: lighten($primary-color, 5%);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+
+    h3 {
+      color: $secondary-color;
+      margin-bottom: 10px;
+    }
+
+    a {
+      color: $secondary-color;
+      font-weight: bold;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  @include media(tablet) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  list-style: none;
+  text-align: center;
+
+  .skills-item {
+    background: lighten($primary-color, 5%);
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  @include media(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media(mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.education-list,
+.experience-list {
+  list-style: none;
+
+  .education-item,
+  .experience-item {
+    background: lighten($primary-color, 5%);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.contacts-list {
+  list-style: none;
+  text-align: center;
+
+  .contacts-link::before {
+    content: "";
+    display: block;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .contacts-link.tel::before {
+    background-image: url("../imgs/tel.svg");
+  }
+  .contacts-link.email::before {
+    background-image: url("../imgs/email.svg");
+  }
+  .contacts-link.linkedin::before {
+    background-image: url("../imgs/linkedin.svg");
+  }
+  .contacts-link.github::before {
+    background-image: url("../imgs/github.svg");
+  }
+  .contacts-link.telegram::before {
+    background-image: url("../imgs/telegram.svg");
+  }
+
+  .contacts-link {
+    @include flex();
+    color: $text-color;
+    font-size: 1.2rem;
+    margin: 10px 0;
+    text-decoration: none;
+    transition: color 0.3s;
+
+    &:hover {
+      color: lighten($secondary-color, 10%);
+    }
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: darken($primary-color, 5%);
+}
